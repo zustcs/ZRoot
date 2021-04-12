@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: zroot-user-provider
+  datasource:
+    driver-class-name: ${mysql.driver}
+    url: ${mysql.url}
+    username: ${mysql.username}
+    password: ${mysql.password}
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20001
+  registry:
+    address: ${zoo.url}
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+  scan:
+    base-packages: cn.zustcs.zroot.user.provider.service
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+
+zroot:
+  user:
+    version: 1.0.0
